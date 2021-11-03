@@ -3,27 +3,29 @@ package org.library.web.model;
 public class Book {
 	private int bookId;
 	private String title;
-	private String name;
+	private String publisher;
 	private String author;
 	private int serial;
 	private int numberOfCopies;
 	private int numberOfAvailableCopies;
+	private String category;
 	
 	public Book()
 	{
 		
 	}
 	
-	public Book(int bookId, String title, String name, String author, int serial, int numberOfCopies,
-			int numberOfAvailableCopies) {
+	public Book(int bookId, String title,String publisher, String author, int serial, int numberOfCopies,
+			int numberOfAvailableCopies,String category) {
 		super();
 		this.bookId = bookId;
 		this.title = title;
-		this.name = name;
 		this.author = author;
 		this.serial = serial;
 		this.numberOfCopies = numberOfCopies;
 		this.numberOfAvailableCopies = numberOfAvailableCopies;
+		this.publisher=publisher;
+		this.category=category;
 	}
 
 
@@ -44,16 +46,6 @@ public class Book {
 
 	public void setTitle(String title) {
 		this.title = title;
-	}
-
-
-	public String getName() {
-		return name;
-	}
-
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 
@@ -94,6 +86,22 @@ public class Book {
 
 	public void setNumberOfAvailableCopies(int numberOfAvailableCopies) {
 		this.numberOfAvailableCopies = numberOfAvailableCopies;
+	}
+
+	public String getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 	
 

@@ -2,11 +2,10 @@ package org.library.web.dao;
 
 
 import java.sql.Connection;
-import org.library.web.dao.*;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.library.web.model.User;
@@ -33,6 +32,30 @@ public class UserDao {
 	}
 	
 	public List<User> getUsers() {
-		return null;
+		try {
+			 Connection con = DbConnection.initializeDatabase();
+			 Statement st =con.createStatement();
+			 ResultSet rs=st.executeQuery("select * from Users");
+			 List<User> users=new ArrayList<User>();
+			 while(rs.next())
+			 {
+				 User u=new User();
+				 u.setUserId(rs.getInt("userId"));
+				 u.setFname(rs.getString("fname"));
+				 u.setLname(rs.getString("lname"));
+				 u.setGender(rs.getString("gender"));
+				 u.setDateOfBirth(rs.getString("dateOfBirth")); 
+				 u.setContact(rs.getString("contact"));
+				 u.setEmail(rs.getString("email"));
+				 u.setPassword(rs.getString("password"));
+				 users.add(u);
+			 }
+			 return users;
+		 }
+		 catch(Exception e){
+			 return null;
+		 }
+
+
 	}
 }

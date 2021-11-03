@@ -16,14 +16,6 @@ import jakarta.servlet.http.HttpServletResponse;
  */
 public class LoginController extends HttpServlet {
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		PrintWriter out= response.getWriter();
@@ -35,11 +27,11 @@ public class LoginController extends HttpServlet {
 			boolean isValid = ud.validateUser(email, password);
 			if(isValid)
 			{
-				response.sendRedirect("index.jsp");
+				response.sendRedirect("GetUsers");
 			}
 			else
 			{
-				response.sendRedirect("login");
+				response.sendRedirect("login.jsp?message='error'");
 			}
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

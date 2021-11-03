@@ -2,35 +2,33 @@ package org.library.web.model;
 
 public class Student {
 	
-	private int studetnId;
+	private int studentId;
 	private String fname;
 	private String lname;
 	private String gender;
 	private String dateOfBirth;
 	private String email;
-	private String password;
+	private String contact;
 	
 	public Student() {
 		
 	}
 	
-	public Student(int studetnId, String fname, String lname, String gender, String dateOfBirth, String email,
-			String password) {
+	public Student(String fname, String lname, String gender, String dateOfBirth, String email, String contact) {
 		super();
-		this.studetnId = studetnId;
 		this.fname = fname;
 		this.lname = lname;
 		this.gender = gender;
 		this.dateOfBirth = dateOfBirth;
 		this.email = email;
-		this.password = password;
+		this.contact=contact;
 	}
 	
-	public int getStudetnId() {
-		return studetnId;
+	public int getStudentId() {
+		return studentId;
 	}
-	public void setStudetnId(int studetnId) {
-		this.studetnId = studetnId;
+	public void setStudentId(int studentId) {
+		this.studentId = studentId;
 	}
 	public String getFname() {
 		return fname;
@@ -62,12 +60,14 @@ public class Student {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPassword() {
-		return password;
+	
+	public String getContact() {
+		return contact;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setContact(String contact) {
+		this.contact = contact;
 	}
+	
 	
 	
 }
