@@ -16,7 +16,7 @@
 <h3>Register a New Book</h3>
 <hr>
 
-<form>
+<form action="AddBook" method="post">
 	<div class="row " >
     <label>  Select Category</label>
     <div class="col form-group">
@@ -55,17 +55,12 @@
   
   <div class="row mb-4">
     <div class="col">
-      <div class="form-outline">
-      <label class="form-label" for="form3Example1">Book Serial</label>
-        <input type="text" class="form-control" name="serial"/>    
-      </div>
-    </div>
-    <div class="col">
       <div class="">
       <label class="form-label" >Number Of Copies</label>
         <input type="text"  class="form-control" name="numberOfCopies"/>   
       </div>
     </div>
+    <div class="col"></div>
 	</div>
 	
 	<div class="row ">

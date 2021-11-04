@@ -5,7 +5,6 @@ public class Book {
 	private String title;
 	private String publisher;
 	private String author;
-	private int serial;
 	private int numberOfCopies;
 	private int numberOfAvailableCopies;
 	private String category;
@@ -15,13 +14,11 @@ public class Book {
 		
 	}
 	
-	public Book(int bookId, String title,String publisher, String author, int serial, int numberOfCopies,
+	public Book( String title,String publisher, String author, int numberOfCopies,
 			int numberOfAvailableCopies,String category) {
 		super();
-		this.bookId = bookId;
 		this.title = title;
 		this.author = author;
-		this.serial = serial;
 		this.numberOfCopies = numberOfCopies;
 		this.numberOfAvailableCopies = numberOfAvailableCopies;
 		this.publisher=publisher;
@@ -56,16 +53,6 @@ public class Book {
 
 	public void setAuthor(String author) {
 		this.author = author;
-	}
-
-
-	public int getSerial() {
-		return serial;
-	}
-
-
-	public void setSerial(int serial) {
-		this.serial = serial;
 	}
 
 

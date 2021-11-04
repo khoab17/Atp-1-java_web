@@ -36,6 +36,30 @@ public class BookDao {
 
 	}
 	
+	public Book GetBook(int id)  {
+		try {
+		Connection con=DbConnection.initializeDatabase();
+		Statement st=con.createStatement();
+		ResultSet rs=st.executeQuery("select * from book where bookId="+id);
+		Book b=new Book();
+		 while(rs.next())
+		 {
+			 b.setBookId(rs.getInt("bookId"));
+			 b.setTitle(rs.getString("title"));
+			 b.setAuthor(rs.getString("author"));
+			 b.setPublisher(rs.getString("publisher"));
+			 b.setNumberOfCopies(rs.getInt("numberOfCopies"));
+			 b.setNumberOfAvailableCopies(rs.getInt("numberOfAvailableCopies"));
+			 b.setCategory(rs.getString("category"));
+		 }
+		 return b;
+	 }
+	 catch(Exception e){
+		 return null;
+	
+	 }
+	}
+	
 	public List<Book> GetBooks()  {
 		try {
 		Connection con=DbConnection.initializeDatabase();
@@ -48,7 +72,6 @@ public class BookDao {
 			 b.setBookId(rs.getInt("bookId"));
 			 b.setTitle(rs.getString("title"));
 			 b.setAuthor(rs.getString("author"));
-			 b.setSerial(rs.getInt("serial"));
 			 b.setNumberOfCopies(rs.getInt("numberOfCopies"));
 			 b.setNumberOfAvailableCopies(rs.getInt("numberOfAvailableCopies"));
 			 b.setCategory(rs.getString("category"));
@@ -62,6 +85,30 @@ public class BookDao {
 	 }
 	}
 	
+	
+	public boolean Update(Book book ) throws ClassNotFoundException
+	{
+		try {
+			 Connection con = DbConnection.initializeDatabase();
+			 PreparedStatement st = con.prepareStatement("update  book set title=?,publisher=?,author=?,numberOfCopies=?,numberOfAvailableCopies=?,category=? where bookId="+book.getBookId());
+			 st.setString(1, book.getTitle());
+			 st.setString(2, book.getPublisher());
+			 st.setString(3, book.getAuthor());
+			 st.setInt(4, book.getNumberOfCopies());
+			 st.setInt(5, book.getNumberOfAvailableCopies());
+			 st.setString(6, book.getCategory());
+			 st.executeUpdate(); 
+			 
+			 st.close();
+			 con.close();
+			 return true;
+			 }
+
+		 catch(SQLException e){
+			 return false;
+		 }
+
+	}
 	
 	
 }

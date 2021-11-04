@@ -59,6 +59,18 @@
   	<description></description>
   	<servlet-class>org.library.web.GetBooksController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>AddBookController</servlet-name>
+  	<display-name>AddBookController</display-name>
+  	<description></description>
+  	<servlet-class>org.library.web.AddBookController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>UpdateBookController</servlet-name>
+  	<display-name>UpdateBookController</display-name>
+  	<description></description>
+  	<servlet-class>org.library.web.UpdateBookController</servlet-class>
+  </servlet>
     <servlet-mapping>
   	<servlet-name>GetBooksController</servlet-name>
   	<url-pattern>/GetBooks</url-pattern>
@@ -91,5 +103,13 @@
   <servlet-mapping>
   	<servlet-name>GetBooksController</servlet-name>
   	<url-pattern>/GetBooksController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddBookController</servlet-name>
+  	<url-pattern>/AddBook</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UpdateBookController</servlet-name>
+  	<url-pattern>/UpdateBook</url-pattern>
   </servlet-mapping>
 </web-app>

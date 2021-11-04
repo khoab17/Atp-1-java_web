@@ -2,11 +2,13 @@ C:\Users\syed_\OneDrive\Work\Eclipse\library\src\main\java\org\library\web\Stude
 C:\Users\syed_\OneDrive\Work\Eclipse\library\src\main\java\org\library\web\GetUsersController.java
 C:\Users\syed_\OneDrive\Work\Eclipse\library\src\main\java\org\library\web\UserController.java
 C:\Users\syed_\OneDrive\Work\Eclipse\library\src\main\java\org\library\web\model\User.java
+C:\Users\syed_\OneDrive\Work\Eclipse\library\src\main\java\org\library\web\UpdateBookController.java
 C:\Users\syed_\OneDrive\Work\Eclipse\library\src\main\java\org\library\web\dao\UserDao.java
 C:\Users\syed_\OneDrive\Work\Eclipse\library\src\main\java\org\library\web\dao\StudentDao.java
 C:\Users\syed_\OneDrive\Work\Eclipse\library\src\main\java\org\library\web\model\Student.java
 C:\Users\syed_\OneDrive\Work\Eclipse\library\src\main\java\org\library\web\model\Book.java
 C:\Users\syed_\OneDrive\Work\Eclipse\library\src\main\java\org\library\web\model\Issue.java
+C:\Users\syed_\OneDrive\Work\Eclipse\library\src\main\java\org\library\web\AddBookController.java
 C:\Users\syed_\OneDrive\Work\Eclipse\library\src\main\java\org\library\web\dao\BookDao.java
 C:\Users\syed_\OneDrive\Work\Eclipse\library\src\main\java\org\library\web\LoginController.java
 C:\Users\syed_\OneDrive\Work\Eclipse\library\src\main\java\org\library\web\RegisterStudentController.java
