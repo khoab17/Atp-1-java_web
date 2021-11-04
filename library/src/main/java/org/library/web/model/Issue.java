@@ -2,7 +2,7 @@ package org.library.web.model;
 
 public class Issue {
 	private int issueId;
-	private String issueDate;
+	private String dateOfIssue;
 	private String dateOfReturn;
 	private int bookId;
 	private int studentId;
@@ -12,14 +12,23 @@ public class Issue {
 		
 	}
 		
-	public Issue(int issueId, String issueDate, String dateOfReturn, int bookId, int studentId) {
+	public Issue(int issueId, String dateOfIssue, String dateOfReturn, int bookId, int studentId) {
 		super();
 		this.issueId = issueId;
-		this.issueDate = issueDate;
+		this.dateOfIssue = dateOfIssue;
 		this.dateOfReturn = dateOfReturn;
 		this.bookId = bookId;
 		this.studentId = studentId;
 	}
+	
+	public Issue(String dateOfIssue, String dateOfReturn, int bookId, int studentId) {
+		super();
+		this.dateOfIssue = dateOfIssue;
+		this.dateOfReturn = dateOfReturn;
+		this.bookId = bookId;
+		this.studentId = studentId;
+	}
+	
 	
 	
 	public int getIssueId() {
@@ -28,11 +37,11 @@ public class Issue {
 	public void setIssueId(int issueId) {
 		this.issueId = issueId;
 	}
-	public String getIssueDate() {
-		return issueDate;
+	public String getDateOfIssue() {
+		return dateOfIssue;
 	}
-	public void setIssueDate(String issueDate) {
-		this.issueDate = issueDate;
+	public void setDateOfIssue(String dateOfIssue) {
+		this.dateOfIssue = dateOfIssue;
 	}
 	public String getDateOfReturn() {
 		return dateOfReturn;

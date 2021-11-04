@@ -71,6 +71,42 @@
   	<description></description>
   	<servlet-class>org.library.web.UpdateBookController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>SavaUpdateBookController</servlet-name>
+  	<display-name>SavaUpdateBookController</display-name>
+  	<description></description>
+  	<servlet-class>org.library.web.SavaUpdateBookController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>RemoveBookController</servlet-name>
+  	<display-name>RemoveBookController</display-name>
+  	<description></description>
+  	<servlet-class>org.library.web.RemoveBookController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>CreateIssueController</servlet-name>
+  	<display-name>CreateIssueController</display-name>
+  	<description></description>
+  	<servlet-class>org.library.web.CreateIssueController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>GetIssuesController</servlet-name>
+  	<display-name>GetIssuesController</display-name>
+  	<description></description>
+  	<servlet-class>org.library.web.GetIssuesController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AddUserController</servlet-name>
+  	<display-name>AddUserController</display-name>
+  	<description></description>
+  	<servlet-class>org.library.web.AddUserController</servlet-class>
+  </servlet>
+      <servlet-mapping>
+  	<servlet-name>SavaUpdateBookController</servlet-name>
+  	<url-pattern>/SaveUpdateBook</url-pattern>
+  </servlet-mapping>
+  
+  
     <servlet-mapping>
   	<servlet-name>GetBooksController</servlet-name>
   	<url-pattern>/GetBooks</url-pattern>
@@ -111,5 +147,25 @@
   <servlet-mapping>
   	<servlet-name>UpdateBookController</servlet-name>
   	<url-pattern>/UpdateBook</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SavaUpdateBookController</servlet-name>
+  	<url-pattern>/SavaUpdateBook</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RemoveBookController</servlet-name>
+  	<url-pattern>/RemoveBook</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CreateIssueController</servlet-name>
+  	<url-pattern>/CreateIssue</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>GetIssuesController</servlet-name>
+  	<url-pattern>/GetIssues</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddUserController</servlet-name>
+  	<url-pattern>/AddUser</url-pattern>
   </servlet-mapping>
 </web-app>

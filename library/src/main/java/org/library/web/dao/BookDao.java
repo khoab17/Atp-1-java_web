@@ -110,6 +110,21 @@ public class BookDao {
 
 	}
 	
+	public boolean Delete(int id) throws ClassNotFoundException, SQLException {
+		
+		Connection con = DbConnection.initializeDatabase();
+		PreparedStatement st = con.prepareStatement("delete  from book where bookId="+id);
+		try{
+			st.executeUpdate();
+			st.close();
+			con.close();
+			return true;
+		}
+		catch(Exception e) {
+			return false;
+		}
+	}
+	
 	
 }
 

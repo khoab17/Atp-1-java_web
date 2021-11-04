@@ -15,10 +15,10 @@
 
 <div class="mainContent">
 
-<h3>Register a New Book</h3>
+<h3>Update Book</h3>
 <hr>
 
-<form action="" >
+<form action="SaveUpdateBook" method="post" >
 	<div class="row " >
     <label>  Select Category</label>
     <div class="col form-group">
@@ -68,9 +68,12 @@
 	<div class="row ">
 		<input type="submit" class="btn btn-sm btn-primary col" value="Save" >
 	</div>
+	
+	 <input type="hidden"  class="form-control" name="bookId" value="${book.bookId}"/>  
 
 </form>
 </div>
-
+<br><br><br><br><br><br>
+<%@ include file="footer.jsp" %> 
 </body>
 </html>

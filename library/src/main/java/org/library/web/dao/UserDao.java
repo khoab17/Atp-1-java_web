@@ -2,6 +2,7 @@ package org.library.web.dao;
 
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -22,12 +23,38 @@ public class UserDao {
 			 {
 				 return true;
 			 }
-			 else return false;
+			 else {return false;}
 		 }
 		 catch(Exception e){
 			 return false;
 		 }
 
+
+	}
+	
+	public boolean Insert(User user ) throws ClassNotFoundException
+	{
+		 try {
+			 Connection con = DbConnection.initializeDatabase();
+			 PreparedStatement st = con.prepareStatement("insert into users (fname,lname,gender,dateOfBirth,contact,email,password) values(?,?,?,?,?,?,?);");
+			 st.setString(1, user.getFname());
+			 st.setString(2, user.getLname());
+			 st.setString(3, user.getGender());
+			 st.setString(4, user.getDateOfBirth());
+			 st.setString(5, user.getContact());
+			 st.setString(6, user.getEmail());
+			 st.setString(7, user.getPassword());
+			 
+			 st.executeUpdate(); 
+			 
+			 st.close();
+			 con.close();
+			 return true;
+			 }
+
+		 catch(SQLException e){
+			 return false;
+		 }
 
 	}
 	
@@ -50,6 +77,8 @@ public class UserDao {
 				 u.setPassword(rs.getString("password"));
 				 users.add(u);
 			 }
+			 st.close();
+			 con.close();
 			 return users;
 		 }
 		 catch(Exception e){

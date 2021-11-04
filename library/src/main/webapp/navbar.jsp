@@ -10,7 +10,9 @@
   <li ><a href="GetUsers">Users</a></li>
   <li ><a href="GetBooks">Books</a></li>
    <li ><a href="addBook.jsp">Add Book</a></li>
-  <li ><a href="#contact">Issues</a></li>
+  <li ><a href="GetIssues">Issues</a></li>
+  <li ><a href="createIssue.jsp">Create Issues</a></li>
+  <li ><a href="addUser.jsp">Add User</a></li>
 </ul>
 
 

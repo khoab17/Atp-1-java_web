@@ -24,6 +24,18 @@ public class Book {
 		this.publisher=publisher;
 		this.category=category;
 	}
+	
+	public Book( int bookId,String title,String publisher, String author, int numberOfCopies,
+			int numberOfAvailableCopies,String category) {
+		super();
+		this.bookId=bookId;
+		this.title = title;
+		this.author = author;
+		this.numberOfCopies = numberOfCopies;
+		this.numberOfAvailableCopies = numberOfAvailableCopies;
+		this.publisher=publisher;
+		this.category=category;
+	}
 
 
 	public int getBookId() {
