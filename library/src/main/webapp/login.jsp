@@ -16,7 +16,7 @@ uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
   
 <div> <button type="submit"  class="btn">Sign In</button></div> <!-- End Btn -->
 
-<a href="#"><div id="btn2">Sign Up</div></a> <!-- End Btn2 -->
+
 
 
 
@@ -29,7 +29,6 @@ uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <br><p>Login failed</p><br/>
 </c:if> 
 
-<p>Forgot your password? <u style="color:blue">Click Here!</u></p>
 </body>
 </html>
 

@@ -50,6 +50,8 @@ public class RegisterStudentController extends HttpServlet {
 		}
 		out.println(fname);
 		out.println(",Registration successful");
+		response.sendRedirect("StudentList");
+		
 		
 		//RequestDispatcher rd=request.getRequestDispatcher("users.jsp");
 		//rd.forward(request, response);

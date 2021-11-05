@@ -72,6 +72,7 @@ public class BookDao {
 			 b.setBookId(rs.getInt("bookId"));
 			 b.setTitle(rs.getString("title"));
 			 b.setAuthor(rs.getString("author"));
+			 b.setPublisher(rs.getString("publisher"));
 			 b.setNumberOfCopies(rs.getInt("numberOfCopies"));
 			 b.setNumberOfAvailableCopies(rs.getInt("numberOfAvailableCopies"));
 			 b.setCategory(rs.getString("category"));

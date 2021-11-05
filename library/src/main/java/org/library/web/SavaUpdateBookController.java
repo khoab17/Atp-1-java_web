@@ -44,6 +44,7 @@ public class SavaUpdateBookController extends HttpServlet {
 		BookDao bd=new BookDao();
 		try {
 		bd.Update(book);
+		response.sendRedirect("GetBooks");
 		}
 		catch(Exception e){}
 		

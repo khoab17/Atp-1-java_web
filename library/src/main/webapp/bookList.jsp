@@ -24,6 +24,7 @@
 	<th>Id</th>
 	<th>Title</th>
 	<th>Author</th>
+	<th>Publisher</th>
 	<th>Number Of Copies</th>
 	<th>Available</th>
 	<th>Category</th>
@@ -37,6 +38,7 @@
 			<td>${book.bookId}</p></td>
 			<td>${book.title}</td>
 			<td>${book.author}</td>
+			<td>${book.publisher}</td>
 			<td>${book.numberOfCopies}</td>
 			<td>${book.numberOfAvailableCopies}</td>
 			<td>${book.category}</td>	

@@ -27,7 +27,7 @@ public class LoginController extends HttpServlet {
 			boolean isValid = ud.validateUser(email, password);
 			if(isValid)
 			{
-				response.sendRedirect("GetUsers");
+				response.sendRedirect("index.jsp");
 			}
 			else
 			{
