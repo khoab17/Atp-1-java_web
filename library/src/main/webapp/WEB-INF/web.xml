@@ -113,6 +113,42 @@
   	<description></description>
   	<servlet-class>org.library.web.LogoutController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>HomeStudentController</servlet-name>
+  	<display-name>HomeStudentController</display-name>
+  	<description></description>
+  	<servlet-class>org.library.web.HomeStudentController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>StudentHomeController</servlet-name>
+  	<display-name>StudentHomeController</display-name>
+  	<description></description>
+  	<servlet-class>org.library.web.StudentHomeController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>BookListController</servlet-name>
+  	<display-name>BookListController</display-name>
+  	<description></description>
+  	<servlet-class>org.library.web.BookListController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>RequestBookController</servlet-name>
+  	<display-name>RequestBookController</display-name>
+  	<description></description>
+  	<servlet-class>org.library.web.RequestBookController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>BorrowedBookController</servlet-name>
+  	<display-name>BorrowedBookController</display-name>
+  	<description></description>
+  	<servlet-class>org.library.web.BorrowedBookController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>RequestListStudentController</servlet-name>
+  	<display-name>RequestListStudentController</display-name>
+  	<description></description>
+  	<servlet-class>org.library.web.RequestListStudentController</servlet-class>
+  </servlet>
       <servlet-mapping>
   	<servlet-name>SavaUpdateBookController</servlet-name>
   	<url-pattern>/SaveUpdateBook</url-pattern>
@@ -187,5 +223,29 @@
   <servlet-mapping>
   	<servlet-name>LogoutController</servlet-name>
   	<url-pattern>/Logout</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>HomeStudentController</servlet-name>
+  	<url-pattern>/HomeStudent</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>StudentHomeController</servlet-name>
+  	<url-pattern>/StudentHome</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>BookListController</servlet-name>
+  	<url-pattern>/BookList</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RequestBookController</servlet-name>
+  	<url-pattern>/RequestBook</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>BorrowedBookController</servlet-name>
+  	<url-pattern>/BorrowedBook</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RequestListStudentController</servlet-name>
+  	<url-pattern>/RequestListStudent</url-pattern>
   </servlet-mapping>
 </web-app>

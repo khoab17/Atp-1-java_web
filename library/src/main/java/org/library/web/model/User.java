@@ -10,11 +10,12 @@ public class User {
     private String contact;
     private String email;
     private String password;
+    private String role;
     
     public User() {}
     
 	public User(String fname, String lname, String gender, String dateOfBirth, String contact, String email,
-			String password) {
+			String password,String role) {
 		super();
 		this.fname = fname;
 		this.lname = lname;
@@ -23,6 +24,7 @@ public class User {
 		this.contact = contact;
 		this.email = email;
 		this.password = password;
+		this.role=role;
 	}
 	
 	public int getUserId() {
@@ -72,6 +74,14 @@ public class User {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 	
     

@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.library.web.dao.StudentDao;
 import org.library.web.model.Student;
+import org.library.web.model.User;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -39,7 +40,7 @@ public class StudentListController extends HttpServlet {
 		
 		if(request.getSession().getAttribute("email")!=null)
 		{
-		List<Student> students=new ArrayList<Student>();
+		List<User> students=new ArrayList<User>();
 		StudentDao sd=new StudentDao();
 		try {
 		 students=sd.GetStudents();

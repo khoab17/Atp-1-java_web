@@ -69,15 +69,16 @@ public class IssueDao {
 
 		try {
 			 Connection con = DbConnection.initializeDatabase();
-			 PreparedStatement st = con.prepareStatement("insert into issue (dateOfIssue,dateOfReturn,bookId,studentId) values(?,?,?,?);");
+			 PreparedStatement st = con.prepareStatement("insert into issue (dateOfIssue,dateOfReturn,bookId,studentId,status) values(?,?,?,?,?);");
 			 st.setString(1, issue.getDateOfIssue());
 			 st.setString(2, issue.getDateOfReturn());
 			 st.setInt(3, issue.getBookId());
 			 st.setInt(4, issue.getStudentId());
+			 st.setString(5, issue.getStatus());
 			 st.executeUpdate(); 			 
 			 st.close();
 			 con.close();
-			 System.out.println("Runnig");
+			// System.out.println("Runnig");
 			 return true;
 			 }
 
@@ -103,6 +104,34 @@ public class IssueDao {
 				 i.setDateOfReturn(rs.getString("dateOfReturn"));
 				 i.setBookId(rs.getInt("bookId"));
 				 i.setStudentId(rs.getInt("studentId"));
+				 i.setStatus(rs.getString("status"));
+				 issues.add(i);
+			 }
+			 con.close();
+			 rs.close();
+			 st.close();
+			 return issues;
+		 }
+		 catch(Exception e){
+			 return null;
+		 }
+	}
+	
+	public List<Issue> GetIssues(int id){
+		try {
+			 Connection con = DbConnection.initializeDatabase();
+			 Statement st =con.createStatement();
+			 ResultSet rs=st.executeQuery("select * from issue where studentId="+id);
+			 List<Issue> issues=new ArrayList<Issue>();
+			 while(rs.next())
+			 {
+				 Issue i=new Issue();
+				 i.setIssueId(rs.getInt("issueId"));
+				 i.setDateOfIssue(rs.getString("dateOfIssue"));
+				 i.setDateOfReturn(rs.getString("dateOfReturn"));
+				 i.setBookId(rs.getInt("bookId"));
+				 i.setStudentId(rs.getInt("studentId"));
+				 i.setStatus(rs.getString("status"));
 				 issues.add(i);
 			 }
 			 con.close();

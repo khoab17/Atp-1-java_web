@@ -34,7 +34,7 @@
 	
 	<c:forEach items="${allstudents}" var="student" >
 		<tr>
-			<td>${student.studentId}</td>
+			<td>${student.userId}</td>
 			<td>${student.fname}</td>
 			<td>${student.lname}</td>
 			<td>${student.gender}</td>
@@ -51,5 +51,8 @@
 	
 	</table>
  </div>
+ 
+ <br><br><br><br><br><br>
+<%@ include file="footer.jsp" %> 
 </body>
 </html>

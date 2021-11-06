@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import org.library.web.dao.UserDao;
+import org.library.web.model.User;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -29,12 +30,18 @@ public class LoginController extends HttpServlet {
 		System.out.println("Value:"+rememberMe);
 		UserDao ud=new UserDao();
 		try {
-			boolean isValid = ud.validateUser(email, password);
-			if(isValid)
+			User u = ud.validateUser(email, password);
+			//System.out.println("Role:"+role);
+			String role=u.getRole();
+			
+			if(role!=null) {
+			
+			if(role.contains("admin"))
 			{
 				
 				HttpSession session=request.getSession();
 				session.setAttribute("email", email);
+				session.setAttribute("role", "admin");
 				
 				if(rememberMe!=null && !rememberMe.isEmpty())
                 {
@@ -44,10 +51,28 @@ public class LoginController extends HttpServlet {
 				response.sendRedirect("Home");
 				//System.out.print(email);
 			}
+			else if (role.contains("student"))
+			{
+
+				HttpSession session=request.getSession();
+				session.setAttribute("email", email);
+				session.setAttribute("role", "student");
+				session.setAttribute("studentId",u.getUserId());
+				
+				if(rememberMe!=null && !rememberMe.isEmpty()) 
+                {
+                    response.addCookie(new Cookie("email",email));
+                }
+				response.sendRedirect("StudentHome");
+			}
 			else
 			{
 				response.sendRedirect("login.jsp?message='error'");
 			}
+			
+			}
+			else {response.sendRedirect("login.jsp?message='error'");}
+
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

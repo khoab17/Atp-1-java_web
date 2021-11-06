@@ -60,6 +60,14 @@
           </label>
           </div>
         </div>
+        
+        <div class="user-details">
+        <div class="input-box ">
+            <span class="details">Password</span>
+            <input type="password" name="password" required>
+          </div>
+          </div>
+        
         <div class="button">
           <input type="submit" value="Register" >
         </div>

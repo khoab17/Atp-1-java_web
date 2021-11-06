@@ -39,10 +39,10 @@ public class CreateIssueController extends HttpServlet {
 		String dateOfReturn=request.getParameter("dateOfReturn");
 		int bookId=Integer.parseInt(request.getParameter("bookId"));
 		int studentId=Integer.parseInt(request.getParameter("studentId"));
-		
+		String status="borrowed";
 		//System.out.print(dateOfIssue+"  "+dateOfReturn+"  "+bookId+"  "+studentId);
 		
-		Issue i=new Issue(dateOfIssue,dateOfReturn,bookId,studentId);
+		Issue i=new Issue(dateOfIssue,dateOfReturn,bookId,studentId,status);
 		IssueDao ir=new IssueDao();
 		try {
 			ir.Insert(i);

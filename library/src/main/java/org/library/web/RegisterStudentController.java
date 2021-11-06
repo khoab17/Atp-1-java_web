@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 
 import org.library.web.dao.StudentDao;
 import org.library.web.model.Student;
+import org.library.web.model.User;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -40,12 +41,15 @@ public class RegisterStudentController extends HttpServlet {
 		String dateOfBirth=request.getParameter("dateOfBirth");
 		String contact=request.getParameter("contact");
 		String email=request.getParameter("email");
+		String password=request.getParameter("password");
+		String role="student";
 		
-		Student s=new Student(fname,lname,gender,dateOfBirth,contact,email);
+		User s=new User(fname,lname,gender,dateOfBirth,contact,email,password,role);
 		StudentDao sd=new StudentDao();
 		
 		try {
 			flag = sd.Insert(s);
+			System.out.println("Flag:"+flag);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

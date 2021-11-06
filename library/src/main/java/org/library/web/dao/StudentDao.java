@@ -14,17 +14,19 @@ import org.library.web.model.User;
 public class StudentDao {
 	
 	
-	public boolean Insert(Student student ) throws ClassNotFoundException
+	public boolean Insert(User student ) throws ClassNotFoundException
 	{
 		 try {
 			 Connection con = DbConnection.initializeDatabase();
-			 PreparedStatement st = con.prepareStatement("insert into student (fname,lname,gender,dateOfBirth,contact,email) values(?,?,?,?,?,?);");
+			 PreparedStatement st = con.prepareStatement("insert into users (fname,lname,gender,dateOfBirth,contact,email,password,role) values(?,?,?,?,?,?,?,?);");
 			 st.setString(1, student.getFname());
 			 st.setString(2, student.getLname());
 			 st.setString(3, student.getGender());
 			 st.setString(4, student.getDateOfBirth());
-			 st.setString(6, student.getContact());
-			 st.setString(5, student.getEmail());
+			 st.setString(5, student.getContact());
+			 st.setString(6, student.getEmail());
+			 st.setString(7, student.getPassword());
+			 st.setString(8, student.getRole());
 			 st.executeUpdate(); 
 			 
 			 st.close();
@@ -38,17 +40,17 @@ public class StudentDao {
 
 	}
 	
-	public List<Student> GetStudents()
+	public List<User> GetStudents()
 	{
 		try {
 			 Connection con = DbConnection.initializeDatabase();
 			 Statement st =con.createStatement();
-			 ResultSet rs=st.executeQuery("select * from student");
-			 List<Student> students=new ArrayList<Student>();
+			 ResultSet rs=st.executeQuery("select * from users where role='student'");
+			 List<User> students=new ArrayList<User>();
 			 while(rs.next())
 			 {
-				 Student s=new Student();
-				 s.setStudentId(rs.getInt("studentId"));
+				 User s=new User();
+				 s.setUserId(rs.getInt("userId"));
 				 s.setFname(rs.getString("fname"));
 				 s.setLname(rs.getString("lname"));
 				 s.setDateOfBirth(rs.getString("dateOfBirth"));

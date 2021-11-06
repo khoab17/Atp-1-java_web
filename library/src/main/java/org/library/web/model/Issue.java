@@ -6,6 +6,7 @@ public class Issue {
 	private String dateOfReturn;
 	private int bookId;
 	private int studentId;
+	private String status;
 	
 	public Issue()
 	{
@@ -21,12 +22,13 @@ public class Issue {
 		this.studentId = studentId;
 	}
 	
-	public Issue(String dateOfIssue, String dateOfReturn, int bookId, int studentId) {
+	public Issue(String dateOfIssue, String dateOfReturn, int bookId, int studentId,String status) {
 		super();
 		this.dateOfIssue = dateOfIssue;
 		this.dateOfReturn = dateOfReturn;
 		this.bookId = bookId;
 		this.studentId = studentId;
+		this.status=status;
 	}
 	
 	
@@ -60,6 +62,14 @@ public class Issue {
 	}
 	public void setStudentId(int studentId) {
 		this.studentId = studentId;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 }

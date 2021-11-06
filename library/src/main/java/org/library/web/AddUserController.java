@@ -44,9 +44,10 @@ public class AddUserController extends HttpServlet {
 		String dateOfBirth=request.getParameter("dateOfBirth");
 		String contact=request.getParameter("contact");
 		String password=request.getParameter("password");
+		String role="admin";
 	
 		//Student s=new Student(fname,lname,gender,dateOfBirth,contact,email);
-		User u=new User(fname,lname,gender,dateOfBirth,contact, email,password);
+		User u=new User(fname,lname,gender,dateOfBirth,contact, email,password,role);
 		//BookDao bd=new BookDao();
 		UserDao ud=new UserDao();
 		

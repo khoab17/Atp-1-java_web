@@ -1,3 +1,5 @@
+<%@ page isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %> 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -13,10 +15,10 @@
 
 <div class="mainContent">
 
-<h3>Register a New Book</h3>
+<h3>Update Book</h3>
 <hr>
 
-<form action="" method="post">
+<form action="SaveUpdateBook" method="post" >
 	<div class="row " >
     <label>  Select Category</label>
     <div class="col form-group">
@@ -33,13 +35,13 @@
     <div class="col">
       <div class="form-outline">
       <label class="form-label" for="form3Example1">Book Title</label>
-        <input type="text" class="form-control" name="title"/>    
+        <input type="text" class="form-control" name="title" value="${book.title}"/>    
       </div>
     </div>
     <div class="col">
       <div class="">
       <label class="form-label" >Author Name</label>
-        <input type="text"  class="form-control" name="author"/>   
+        <input type="text"  class="form-control" name="author" value="${book.author}"/>   
       </div>
     </div>
     </div>
@@ -48,7 +50,7 @@
 	    <div class="col">
 	      <div class="">
 	      <label class="form-label" >Publisher</label>
-	        <input type="text"  class="form-control" name="publisher" />   
+	        <input type="text"  class="form-control" name="publisher" value="${book.publisher}"/>   
 	      </div>
 	    </div>
   	</div>
@@ -57,7 +59,7 @@
     <div class="col">
       <div class="">
       <label class="form-label" >Number Of Copies</label>
-        <input type="text"  class="form-control" name="numberOfCopies"/>   
+        <input type="text"  class="form-control" name="numberOfCopies" value="${book.numberOfCopies}"/>   
       </div>
     </div>
     <div class="col"></div>
@@ -66,9 +68,12 @@
 	<div class="row ">
 		<input type="submit" class="btn btn-sm btn-primary col" value="Save" >
 	</div>
+	
+	 <input type="hidden"  class="form-control" name="bookId" value="${book.bookId}"/>  
 
 </form>
 </div>
-
+<br><br><br><br><br><br>
+<%@ include file="footer.jsp" %> 
 </body>
 </html>
