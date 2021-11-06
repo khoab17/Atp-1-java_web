@@ -24,16 +24,18 @@ public class GetUsersController extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
 		
+		if(request.getSession().getAttribute("email")!=null)
+		{
 		UserDao ud=new UserDao();
 		List<User> users=new ArrayList<User>();
 		users=ud.getUsers();
-		
-
 		//System.out.println(users.getFname());
-
 		request.setAttribute("allusers", users);
 		RequestDispatcher rd=request.getRequestDispatcher("users.jsp");
 		rd.forward(request, response);
+		}
+		else 
+			response.sendRedirect("login.jsp");
 
 	}
 

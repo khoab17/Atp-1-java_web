@@ -35,7 +35,8 @@ public class AddUserController extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
 		
-		
+		if(request.getSession().getAttribute("email")!=null)
+		{
 		String fname=request.getParameter("fname");
 		String lname=request.getParameter("lname");
 		String gender=request.getParameter("gender");
@@ -43,9 +44,7 @@ public class AddUserController extends HttpServlet {
 		String dateOfBirth=request.getParameter("dateOfBirth");
 		String contact=request.getParameter("contact");
 		String password=request.getParameter("password");
-
-		
-		
+	
 		//Student s=new Student(fname,lname,gender,dateOfBirth,contact,email);
 		User u=new User(fname,lname,gender,dateOfBirth,contact, email,password);
 		//BookDao bd=new BookDao();
@@ -57,8 +56,12 @@ public class AddUserController extends HttpServlet {
 		} 
 		catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e.printStackTrace();}
 		}
+		else 
+			response.sendRedirect("login.jsp");
+		
+		
 	}
 
 }

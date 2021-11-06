@@ -13,7 +13,7 @@
   <li ><a href="addUser.jsp">Add User</a></li>
   <li ><a href="GetIssues">Issues</a></li>
   <li ><a href="createIssue.jsp">Create Issues</a></li>
-  <li ><a href="login.jsp">Log out</a></li>
+  <li ><a href="Logout">Log out</a></li>
   
 </ul>
 

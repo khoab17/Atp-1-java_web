@@ -36,6 +36,9 @@ public class GetIssuesController extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
 		
+		
+		if(request.getSession().getAttribute("email")!=null)
+		{
 		IssueDao issuedao=new IssueDao();
 		List<Issue> issues=new ArrayList<Issue>();
 		issues=issuedao.GetIssues();
@@ -51,6 +54,9 @@ public class GetIssuesController extends HttpServlet {
 		request.setAttribute("issues", issues);
 		RequestDispatcher rd=request.getRequestDispatcher("issueList.jsp");
 		rd.forward(request, response);
+		}
+		else 
+			response.sendRedirect("login.jsp");
 	}
 
 }

@@ -33,6 +33,8 @@ public class CreateIssueController extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
 
+		if(request.getSession().getAttribute("email")!=null)
+		{
 		String dateOfIssue=request.getParameter("dateOfIssue");
 		String dateOfReturn=request.getParameter("dateOfReturn");
 		int bookId=Integer.parseInt(request.getParameter("bookId"));
@@ -49,6 +51,8 @@ public class CreateIssueController extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		}
+		else response.sendRedirect("login.jsp");
 
 	}
 

@@ -31,6 +31,8 @@ public class AddBookController extends HttpServlet {
 		PrintWriter out=response.getWriter();
 		
 		
+		if(request.getSession().getAttribute("email")!=null)
+		{
 		String title=request.getParameter("title");
 		String publisher=request.getParameter("publisher");
 		String author=request.getParameter("author");
@@ -50,6 +52,9 @@ public class AddBookController extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		}
+		else 
+			response.sendRedirect("login.jsp");
 
 	}
 

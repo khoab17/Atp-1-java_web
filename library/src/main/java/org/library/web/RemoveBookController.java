@@ -32,6 +32,9 @@ public class RemoveBookController extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
 		
+		
+		if(request.getSession().getAttribute("email")!=null)
+		{
 		int id=Integer.parseInt(request.getParameter("id")) ;
 		System.out.println(id);
 		
@@ -47,6 +50,8 @@ public class RemoveBookController extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		}
+		else response.sendRedirect("login.jsp");
 	}
 
 }

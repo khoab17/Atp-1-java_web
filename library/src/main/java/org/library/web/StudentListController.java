@@ -37,8 +37,9 @@ public class StudentListController extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
 		
+		if(request.getSession().getAttribute("email")!=null)
+		{
 		List<Student> students=new ArrayList<Student>();
-		
 		StudentDao sd=new StudentDao();
 		try {
 		 students=sd.GetStudents();
@@ -49,6 +50,8 @@ public class StudentListController extends HttpServlet {
 		request.setAttribute("allstudents", students);
 		RequestDispatcher rd=request.getRequestDispatcher("studentList.jsp");
 		rd.forward(request, response);
+		}
+		else response.sendRedirect("login.jsp");
 		
 		
 	}

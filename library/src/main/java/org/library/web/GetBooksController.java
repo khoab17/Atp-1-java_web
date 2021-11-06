@@ -36,16 +36,20 @@ public class GetBooksController extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
 		
+		
+		if(request.getSession().getAttribute("email")!=null)
+		{
 		BookDao bd=new BookDao();
 		List<Book> books=new ArrayList<Book>();
 		books=bd.GetBooks();
-		
-
 		//System.out.println(users.getFname());
 
 		request.setAttribute("allbooks", books);
 		RequestDispatcher rd=request.getRequestDispatcher("bookList.jsp");
 		rd.forward(request, response);
+		}
+		else 
+			response.sendRedirect("login.jsp");
 	}
 
 

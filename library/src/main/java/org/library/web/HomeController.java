@@ -1,27 +1,24 @@
 package org.library.web;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
-import org.library.web.dao.BookDao;
-import org.library.web.model.Book;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class UpdateBookController URL /UpdateBook
+ * Servlet implementation class HomeController
  */
-public class UpdateBookController extends HttpServlet {
+public class HomeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * Default constructor. 
      */
-    public UpdateBookController() {
+    public HomeController() {
         // TODO Auto-generated constructor stub
     }
 
@@ -29,26 +26,17 @@ public class UpdateBookController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.setContentType("text/html");
-		PrintWriter out=response.getWriter();
-		
 		
 		if(request.getSession().getAttribute("email")!=null)
 		{
-		int id=Integer.parseInt(request.getParameter("id")) ;
-		
-		Book book=new Book();
-		BookDao bd=new BookDao();
-		book=bd.GetBook(id);
-		
-		request.setAttribute("book", book);
-		RequestDispatcher rd=request.getRequestDispatcher("editBook.jsp");
-		rd.forward(request, response);
+			//String email=session.getId();
+			//System.out.println(email);
+			//request.setAttribute("email", email);
+			RequestDispatcher rd=request.getRequestDispatcher("index.jsp");
+			rd.forward(request, response);
 		}
-		else response.sendRedirect("login.jsp");
-		
-		
+		else
+		response.sendRedirect("login.jsp");
 	}
 
 }

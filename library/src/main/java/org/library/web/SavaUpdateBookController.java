@@ -31,7 +31,8 @@ public class SavaUpdateBookController extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
 		
-		
+		if(request.getSession().getAttribute("email")!=null)
+		{
 		String title=request.getParameter("title");
 		String publisher=request.getParameter("publisher");
 		String author=request.getParameter("author");
@@ -47,6 +48,9 @@ public class SavaUpdateBookController extends HttpServlet {
 		response.sendRedirect("GetBooks");
 		}
 		catch(Exception e){}
+		}
+		else 
+		response.sendRedirect("login.jsp");
 		
 	}
 

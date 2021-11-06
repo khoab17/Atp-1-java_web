@@ -32,6 +32,8 @@ public class RegisterStudentController extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
 		
+		if(request.getSession().getAttribute("email")!=null)
+		{
 		String fname=request.getParameter("fname");
 		String lname=request.getParameter("fname");
 		String gender=request.getParameter("gender");
@@ -51,7 +53,9 @@ public class RegisterStudentController extends HttpServlet {
 		out.println(fname);
 		out.println(",Registration successful");
 		response.sendRedirect("StudentList");
+		}
 		
+		else response.sendRedirect("login.jsp");
 		
 		//RequestDispatcher rd=request.getRequestDispatcher("users.jsp");
 		//rd.forward(request, response);

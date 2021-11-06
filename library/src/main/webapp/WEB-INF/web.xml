@@ -101,6 +101,18 @@
   	<description></description>
   	<servlet-class>org.library.web.AddUserController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>HomeController</servlet-name>
+  	<display-name>HomeController</display-name>
+  	<description></description>
+  	<servlet-class>org.library.web.HomeController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>LogoutController</servlet-name>
+  	<display-name>LogoutController</display-name>
+  	<description></description>
+  	<servlet-class>org.library.web.LogoutController</servlet-class>
+  </servlet>
       <servlet-mapping>
   	<servlet-name>SavaUpdateBookController</servlet-name>
   	<url-pattern>/SaveUpdateBook</url-pattern>
@@ -167,5 +179,13 @@
   <servlet-mapping>
   	<servlet-name>AddUserController</servlet-name>
   	<url-pattern>/AddUser</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>HomeController</servlet-name>
+  	<url-pattern>/Home</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LogoutController</servlet-name>
+  	<url-pattern>/Logout</url-pattern>
   </servlet-mapping>
 </web-app>
