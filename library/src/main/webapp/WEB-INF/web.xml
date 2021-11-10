@@ -149,6 +149,60 @@
   	<description></description>
   	<servlet-class>org.library.web.RequestListStudentController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>BookRequestsController</servlet-name>
+  	<display-name>BookRequestsController</display-name>
+  	<description></description>
+  	<servlet-class>org.library.web.BookRequestsController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ConfirmRequestController</servlet-name>
+  	<display-name>ConfirmRequestController</display-name>
+  	<description></description>
+  	<servlet-class>org.library.web.ConfirmRequestController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>CancelRequestController</servlet-name>
+  	<display-name>CancelRequestController</display-name>
+  	<description></description>
+  	<servlet-class>org.library.web.CancelRequestController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ReturnRequestController</servlet-name>
+  	<display-name>ReturnRequestController</display-name>
+  	<description></description>
+  	<servlet-class>org.library.web.ReturnRequestController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ReturnRequestAdminController</servlet-name>
+  	<display-name>ReturnRequestAdminController</display-name>
+  	<description></description>
+  	<servlet-class>org.library.web.ReturnRequestAdminController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ApproveReturnRequestController</servlet-name>
+  	<display-name>ApproveReturnRequestController</display-name>
+  	<description></description>
+  	<servlet-class>org.library.web.ApproveReturnRequestController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>MakeFineController</servlet-name>
+  	<display-name>MakeFineController</display-name>
+  	<description></description>
+  	<servlet-class>org.library.web.MakeFineController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>MakeAFineController</servlet-name>
+  	<display-name>MakeAFineController</display-name>
+  	<description></description>
+  	<servlet-class>org.library.web.MakeFineController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AddFineController</servlet-name>
+  	<display-name>AddFineController</display-name>
+  	<description></description>
+  	<servlet-class>org.library.web.AddFineController</servlet-class>
+  </servlet>
       <servlet-mapping>
   	<servlet-name>SavaUpdateBookController</servlet-name>
   	<url-pattern>/SaveUpdateBook</url-pattern>
@@ -247,5 +301,41 @@
   <servlet-mapping>
   	<servlet-name>RequestListStudentController</servlet-name>
   	<url-pattern>/RequestListStudent</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>BookRequestsController</servlet-name>
+  	<url-pattern>/BookRequests</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ConfirmRequestController</servlet-name>
+  	<url-pattern>/ConfirmRequest</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CancelRequestController</servlet-name>
+  	<url-pattern>/CancelRequest</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ReturnRequestController</servlet-name>
+  	<url-pattern>/ReturnRequest</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ReturnRequestAdminController</servlet-name>
+  	<url-pattern>/ReturnRequestAdmin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ApproveReturnRequestController</servlet-name>
+  	<url-pattern>/ApproveReturnRequest</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>MakeFineController</servlet-name>
+  	<url-pattern>/MakeFineController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>MakeAFineController</servlet-name>
+  	<url-pattern>/MakeAFineController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddFineController</servlet-name>
+  	<url-pattern>/AddFine</url-pattern>
   </servlet-mapping>
 </web-app>

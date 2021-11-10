@@ -7,6 +7,8 @@ public class Issue {
 	private int bookId;
 	private int studentId;
 	private String status;
+	private double fine;
+	private String comment;
 	
 	public Issue()
 	{
@@ -70,6 +72,22 @@ public class Issue {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public double getFine() {
+		return fine;
+	}
+
+	public void setFine(double fine) {
+		this.fine = fine;
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
 	}
 	
 }

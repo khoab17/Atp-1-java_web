@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.library.web.model.Book;
 import org.library.web.model.Request;
 import org.library.web.model.User;
 
@@ -94,6 +95,26 @@ public class RequestDao {
 		 catch(Exception e){
 			 return null;
 		 }
+	}
+	
+	
+	public boolean Update(int id,String status ) throws ClassNotFoundException
+	{
+		try {
+			 Connection con = DbConnection.initializeDatabase();
+			 PreparedStatement st = con.prepareStatement("update  request set status=? where id="+id);
+			 st.setString(1,status);
+			 st.executeUpdate(); 
+			 
+			 st.close();
+			 con.close();
+			 return true;
+			 }
+
+		 catch(SQLException e){
+			 return false;
+		 }
+
 	}
 	
 	

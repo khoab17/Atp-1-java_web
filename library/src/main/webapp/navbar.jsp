@@ -13,6 +13,9 @@
   <li ><a href="addUser.jsp">Add User</a></li>
   <li ><a href="GetIssues">Issues</a></li>
   <li ><a href="createIssue.jsp">Create Issues</a></li>
+  <li ><a href="BookRequests">Book Requests</a></li>
+   <li ><a href="ReturnRequestAdmin">Return Requests</a></li>
+   
   <li ><a href="Logout">Log out</a></li>
   
 </ul>

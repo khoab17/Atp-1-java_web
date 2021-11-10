@@ -16,18 +16,17 @@
 
 <body>
 	<div class="mainContent">
-	<h2>Issue Details:</h2>
+	<h2>Borrow List:</h2>
 	<table class="table table-sm table-striped">
 	
 	<thead class="thead-dark" >
 	<tr>
-	<th>Issue ID</th>
+	<th>Id</th>
 	<th>Book ID</th>
-	<th>Student ID</th>
-	<th>Issue Date</th>
-	<th>Return Date</th>
+	<th>Date Of Issue</th>
+	<th>Date Of Return </th>
 	<th>Status</th>
-	<th></th>
+	<th>Action</th>
 	</tr>
 	</thead>
 	
@@ -35,12 +34,11 @@
 		<tr>
 			<td>${issue.issueId}</td>
 			<td>${issue.bookId}</td>
-			<td>${issue.studentId}</td>
 			<td>${issue.dateOfIssue}</td>
-			<td>${issue.dateOfReturn}</td>	
-			<td>${issue.status}</td>	
-			
-				
+			<td>${issue.dateOfReturn}</td>
+			<td>${issue.status}</td>
+			<td> <a class="btn btn-primary btn-sm" href="ApproveReturnRequest?id=${issue.issueId }">Approve</a>
+			 <a class="btn btn-danger btn-sm" href="MakeFine.jsp?id=${issue.issueId}">Do a Fine</a> </td>
 		</tr>
 	</c:forEach>
 	

@@ -26,6 +26,7 @@
 	<th>Date Of Issue</th>
 	<th>Date Of Return </th>
 	<th>Status</th>
+	<th>Action</th>
 	</tr>
 	</thead>
 	
@@ -36,6 +37,7 @@
 			<td>${issue.dateOfIssue}</td>
 			<td>${issue.dateOfReturn}</td>
 			<td>${issue.status}</td>
+			<td> <a class="btn btn-primary btn-sm" href="ReturnRequest?id=${issue.issueId}">Return</a> </td>
 		</tr>
 	</c:forEach>
 	

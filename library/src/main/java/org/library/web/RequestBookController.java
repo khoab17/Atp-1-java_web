@@ -47,6 +47,7 @@ public class RequestBookController extends HttpServlet {
 		RequestDao rd=new RequestDao();
 		try {
 			rd.Insert(req);
+			response.sendRedirect("RequestListStudent");
 		}
 		catch(Exception e) {}
 		

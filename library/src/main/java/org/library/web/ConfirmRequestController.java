@@ -1,22 +1,24 @@
 package org.library.web;
 
 import java.io.IOException;
+
+import org.library.web.dao.RequestDao;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class LogoutController
+ * Servlet implementation class ConfirmRequestController
  */
-public class LogoutController extends HttpServlet {
+public class ConfirmRequestController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * Default constructor. 
      */
-    public LogoutController() {
+    public ConfirmRequestController() {
         // TODO Auto-generated constructor stub
     }
 
@@ -25,11 +27,19 @@ public class LogoutController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//HttpSession session = request.getSession(false); 
-		//System.out.println("Before Delete"+request.getSession().getId());
-		request.getSession().invalidate();
-		//System.out.println("After Delete"+request.getSession().getAttribute("email"));
-		response.sendRedirect("login.jsp");
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		int id=Integer.parseInt( request.getParameter("id"));
+		
+		RequestDao rd=new RequestDao();
+		try {
+			rd.Update(id,"Considering");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		response.sendRedirect("BookRequests");
 	}
 
 }

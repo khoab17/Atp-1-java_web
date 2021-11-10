@@ -16,31 +16,33 @@
 
 <body>
 	<div class="mainContent">
-	<h2>Issue Details:</h2>
+	<h2>Request Pendings:</h2>
 	<table class="table table-sm table-striped">
 	
 	<thead class="thead-dark" >
 	<tr>
-	<th>Issue ID</th>
-	<th>Book ID</th>
-	<th>Student ID</th>
-	<th>Issue Date</th>
-	<th>Return Date</th>
+	<th>Id</th>
+	<th>Title</th>
+	<th>Author</th>
+	<th>Edition</th>
+	<th>Note</th>
+	<th>StudentId
 	<th>Status</th>
-	<th></th>
+	<th>Action</th>
 	</tr>
 	</thead>
 	
-	<c:forEach items="${issues}" var="issue" >
+	<c:forEach items="${requests}" var="request" >
 		<tr>
-			<td>${issue.issueId}</td>
-			<td>${issue.bookId}</td>
-			<td>${issue.studentId}</td>
-			<td>${issue.dateOfIssue}</td>
-			<td>${issue.dateOfReturn}</td>	
-			<td>${issue.status}</td>	
-			
-				
+			<td>${request.id}</td>
+			<td>${request.title}</td>
+			<td>${request.author}</td>
+			<td>${request.edition}</td>
+			<td>${request.note}</td>
+			<td>${request.studentId}</td>
+			<td>${request.status}</td>	
+			<td> <a class="btn btn-primary btn-sm m-2" href="ConfirmRequest?id=${request.id}" >Consider</a> 
+			 <a class="btn btn-danger btn-sm" href="CancelRequest?id=${request.id}" >Dismiss</a> </td>		
 		</tr>
 	</c:forEach>
 	

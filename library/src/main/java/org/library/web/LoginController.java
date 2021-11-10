@@ -32,8 +32,10 @@ public class LoginController extends HttpServlet {
 		try {
 			User u = ud.validateUser(email, password);
 			//System.out.println("Role:"+role);
-			String role=u.getRole();
 			
+			if(u!=null) {
+			
+			String role=u.getRole();
 			if(role!=null) {
 			
 			if(role.contains("admin"))
@@ -70,6 +72,7 @@ public class LoginController extends HttpServlet {
 				response.sendRedirect("login.jsp?message='error'");
 			}
 			
+			}
 			}
 			else {response.sendRedirect("login.jsp?message='error'");}
 

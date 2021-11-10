@@ -117,11 +117,42 @@ public class IssueDao {
 		 }
 	}
 	
+	public List<Issue> GetIssuesPending(){
+		try {
+			 Connection con = DbConnection.initializeDatabase();
+			 Statement st =con.createStatement();
+			 ResultSet rs=st.executeQuery("select * from issue where status='pending';");
+			 List<Issue> issues=new ArrayList<Issue>();
+			 while(rs.next())
+			 {
+				 Issue i=new Issue();
+				 i.setIssueId(rs.getInt("issueId"));
+				 i.setDateOfIssue(rs.getString("dateOfIssue"));
+				 i.setDateOfReturn(rs.getString("dateOfReturn"));
+				 i.setBookId(rs.getInt("bookId"));
+				 i.setStudentId(rs.getInt("studentId"));
+				 i.setStatus(rs.getString("status"));
+				 i.setFine(rs.getDouble("fine"));
+				 i.setComment(rs.getString("comment"));
+				 issues.add(i);
+			 }
+			 con.close();
+			 rs.close();
+			 st.close();
+			 return issues;
+		 }
+		 catch(Exception e){
+			 return null;
+		 }
+	}
+	
+	
+	
 	public List<Issue> GetIssues(int id){
 		try {
 			 Connection con = DbConnection.initializeDatabase();
 			 Statement st =con.createStatement();
-			 ResultSet rs=st.executeQuery("select * from issue where studentId="+id);
+			 ResultSet rs=st.executeQuery("select * from issue where studentId="+id+" and (status='pending' or status='borrowed')");
 			 List<Issue> issues=new ArrayList<Issue>();
 			 while(rs.next())
 			 {
@@ -142,6 +173,111 @@ public class IssueDao {
 		 catch(Exception e){
 			 return null;
 		 }
+	}
+	
+	
+	public boolean UpdateReturnStatus(int id,String status ) throws ClassNotFoundException
+	{
+		try {
+			 Connection con = DbConnection.initializeDatabase();
+			 PreparedStatement st = con.prepareStatement("update  issue set status=? where issueId="+id);
+			 st.setString(1,status);
+			 st.executeUpdate(); 
+			 
+			 st.close();
+			 con.close();
+			 return true;
+			 }
+
+		 catch(SQLException e){
+			 return false;
+		 }
+
+	}
+	
+	//========================================Add Fine
+	
+	public boolean AddFine(int id,int fine, String comment)
+	{
+	
+		//System.out.print(id+" ......"+fine+" ........"+comment);
+		try {
+			System.out.print(id+" ......"+fine+" ........"+comment);
+			Connection con = DbConnection.initializeDatabase();
+			PreparedStatement st=con.prepareStatement("update issue set fine=?, comment=? where issueId=?");
+			st.setInt(1,fine);
+			st.setString(2,comment);
+			st.setInt(3,id);
+			st.executeUpdate(); 
+			con.close();
+			st.close();
+			
+			UpdateReturnStatus(id);
+			return true;
+		}
+		catch(Exception e){return false;}
+	}
+	
+	public boolean UpdateReturnStatus(int id ) throws ClassNotFoundException
+	{
+		try {
+			 Connection con = DbConnection.initializeDatabase();
+			 PreparedStatement st = con.prepareStatement("update  issue set status=? where issueId="+id);
+			 st.setString(1,"approved");
+			 st.executeUpdate();
+			 //System.out.print("Hitting");
+			 int bookId=0;
+			 int count=0;
+			 Statement stt=con.createStatement();
+			 ResultSet rs=stt.executeQuery("select * from issue where issueId="+id);
+			 while(rs.next())
+			 {
+				 bookId=rs.getInt("bookId");
+			 }
+			 System.out.print("Hitting"+bookId);
+			 
+			 ResultSet result=stt.executeQuery("select * from book where bookId="+bookId);
+			 
+			 while (result.next())
+			 {
+				 count=result.getInt("numberOfAvailableCopies");
+			 }
+			 
+			 //System.out.println("HittingLaST BOOK ID"+bookId+"  Number Of Copies"+count );
+			 stt.close();
+			 
+			ReturnBook(bookId,count);
+			 
+			
+			 st.close();
+			 con.close();
+			 
+			 
+			 return true;
+			 }
+
+		 catch(SQLException e){
+			 return false;
+		 }
+
+	}
+	
+	
+	public void ReturnBook(int id,int availableCopies)
+	{
+		try {
+			
+		//System.out.print("Calling last func");
+		 Connection con = DbConnection.initializeDatabase();
+		 PreparedStatement st = con.prepareStatement("update  book set numberOfAvailableCopies=? where bookId=?");
+		 st.setInt(1,availableCopies+1);
+		 st.setInt(2,id);
+		 st.executeUpdate(); 
+		 con.close();
+		 st.close();
+		}
+		catch(Exception e) {}
+		
 	}
 
 }
